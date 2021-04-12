@@ -1,0 +1,41 @@
+#this code written by vijay
+#limit order book 
+import dash
+import dash_core_components as dcc
+import dash_html_components as html 
+import tkinter as tk
+win = tk.Tk()
+#create title
+win.title('The Limit Order Book')
+#window size l*b
+win.geometry('100x100')
+#create label
+lsm = tk.Label(win, bg='white', width=20, text='empty')
+lsm.pack()
+ #function def of selection
+def print_selection():
+    if (val1.get() == 1) & (val2.get() == 0):
+        lsm.config(text='Sell the product ')
+    elif (val1.get() == 0) & (val2.get() == 1):
+        lsm.config(text='Sell the product')
+    elif (val1.get() == 0) & (val2.get() == 0):
+        lsm.config(text='Buy the product')
+   # else:
+        lsm.config(text='')
+ 
+val1 = tk.IntVar()
+val2 = tk.IntVar()
+#create sell check box
+com1 = tk.Checkbutton(window, text='Sell',variable=var1, onvalue=1, offvalue=0, command=print_selection)
+com1.pack()
+#create check box of sell and buy
+com2 = tk.Checkbutton(window, text='Buy',variable=var2, onvalue=1, offvalue=0, command=print_selection)
+com2.pack()
+#number of share
+html.Label('Number of shares')
+dcc.Input(type='text')
+#create text for limit price 
+html.Label('Limit price')
+dcc.Input(type='text')
+ 
+window.mainloop()
